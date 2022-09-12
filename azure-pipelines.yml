@@ -13,7 +13,7 @@ resources:
   - repository: self
 
 variables:
-  imageRepositoryServiceName: 'garlicoind-node'
+  imageRepositoryServiceName: 'garlicoin-node'
   containerRegistry: 'polarity-acr'
   tag: '$(Build.BuildId)'
 
