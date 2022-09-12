@@ -22,6 +22,7 @@ RUN apt-get update --allow-unauthenticated --allow-insecure-repositories  -y    
 RUN apt install --assume-yes curl wget git screen tmux libx11-xcb1 libasound2 x11-apps libice6 libsm6 libxaw7 libxft2 libxmu6 libxpm4 libxt6 x11-apps xbitmaps
 
 COPY ./docker/entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 COPY ./docker/.garlicoin /etc/garlicoin-0.18.0/.garlicoin
 
