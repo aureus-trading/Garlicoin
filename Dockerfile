@@ -19,7 +19,7 @@ RUN apt-get update --allow-unauthenticated --allow-insecure-repositories  -y    
         bsdmainutils        \
         libboost-all-dev  
         
-RUN apt install --assume-yes libx11-xcb1 libasound2 x11-apps libice6 libsm6 libxaw7 libxft2 libxmu6 libxpm4 libxt6 x11-apps xbitmaps
+RUN apt install --assume-yes curl wget git screen tmux libx11-xcb1 libasound2 x11-apps libice6 libsm6 libxaw7 libxft2 libxmu6 libxpm4 libxt6 x11-apps xbitmaps
 
 COPY ./docker/entrypoint.sh /
 
