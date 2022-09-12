@@ -2,9 +2,8 @@ FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y gzip wget
 
-RUN wget https://github.com/GarlicoinOrg/Garlicoin/releases/download/v0.17.2/garlicoin-0.17.2-x86_64-linux-gnu.tar.gz
-
-RUN gunzip < garlicoin-0.17.2-x86_64-linux-gnu.tar.gz | tar xvf - -C /etc/
+RUN wget https://github.com/GarlicoinOrg/Garlicoin/releases/download/v0.18.0/garlicoin-0.18.0-x86_64-linux-gnu.tar.gz
+RUN gunzip < garlicoin-0.18.0-x86_64-linux-gnu.tar.gz | tar xvf - -C /etc/
 
 RUN apt-get update --allow-unauthenticated --allow-insecure-repositories  -y    \
     && apt-get install  --allow-unauthenticated -y   \
@@ -20,10 +19,11 @@ RUN apt-get update --allow-unauthenticated --allow-insecure-repositories  -y    
         bsdmainutils        \
         libboost-all-dev  
         
-RUN apt install --assume-yes libx11-xcb1 libasound2 x11-apps libice6 libsm6 libxaw7 libxft2 libxmu6 libxpm4 libxt6 x11-apps xbitmaps
+RUN apt install --assume-yes curl wget git screen tmux libx11-xcb1 libasound2 x11-apps libice6 libsm6 libxaw7 libxft2 libxmu6 libxpm4 libxt6 x11-apps xbitmaps
 
 COPY ./docker/entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
-COPY ./docker/.garlicoin /etc/garlicoin-0.17.2/.garlicoin
+COPY ./docker/.garlicoin /etc/garlicoin-0.18.0/.garlicoin
 
 ENTRYPOINT ["/entrypoint.sh"]
