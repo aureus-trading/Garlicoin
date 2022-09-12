@@ -14,7 +14,7 @@ resources:
 
 variables:
   imageRepositoryServiceName: 'garlicoin-node'
-  containerRegistry: 'polarity-acr'
+  containerRegistry: 'polarity-acr-svc-connect-09122022'
   tag: '$(Build.BuildId)'
 
 pool:
